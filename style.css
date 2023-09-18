@@ -1,0 +1,135 @@
+body {
+	font-family: sans-serif;
+}
+
+img[align=left] {
+	margin-right: 0.5em;
+}
+
+#help-icon {
+	cursor: pointer;
+}
+
+/* Hide radio buttons and use the labels as pressable buttons.
+ * Based on https://stackoverflow.com/a/22462740/266309 */
+input[type=radio] {
+	position: fixed;
+	opacity: 0;
+	pointer-events: none;
+}
+
+input[type=radio] + label {
+	background-color: #e0e0e0;
+	border-radius: 5px;
+	padding: 1em;
+	display: inline-block;
+	margin: 0.5em;
+	border-style: outset;
+}
+
+input[type=radio]:checked+label {
+	background-color: lightgreen;
+	border-style: inset;
+}
+
+fieldset {
+	margin: 1em;
+	border: none;
+	border-bottom: 1px solid #999;
+}
+
+fieldset > legend {
+	font-size: 1.5em
+}
+
+dialog {
+	width: 80vw;
+	height: 600px; /* A fixed height is needed for the image within to have a max-height */
+	max-height: 90vh;
+}
+
+dialog img {
+	max-width: 100%;
+	max-height: 80%;
+}
+
+dialog dl dt {
+	display: inline-block;
+	padding: .3em;
+	border: 1px solid black;
+	margin: 1em 0 .5em;
+}
+
+dialog dl dd {
+	display: inline;
+	margin-left: 0.5em;
+}
+
+dialog dl div:nth-of-type(1) dt { background-color: #fff0a6; }
+dialog dl div:nth-of-type(2) dt { background-color: #eaf695; }
+dialog dl div:nth-of-type(3) dt { background-color: #abebaa; }
+dialog dl div:nth-of-type(4) dt { background-color: #7ad8c1; }
+dialog dl div:nth-of-type(5) dt { background-color: #75c1ca; }
+dialog dl div:nth-of-type(6) dt { background-color: #92a7c1; }
+dialog dl div:nth-of-type(7) dt { background-color: #a28da7; }
+
+
+fieldset:last-of-type {
+	text-align: center;
+	border-bottom: none;
+}
+
+fieldset:last-of-type button {
+	border: none;
+	font-size: 2em;
+	margin: 0 0.4em;
+	height: 50px;
+}
+
+fieldset:last-of-type button:first-of-type {
+	position:relative;
+	background: Salmon;
+	border-radius: 2px 5px 5px 0px;
+	padding-left: .3em;
+	padding-right: .5em;
+}
+
+/* Left arrow shape, courtesy of https://css-tricks.com/the-shapes-of-css/ */
+fieldset:last-of-type button:first-of-type::before {
+	content: "";
+	position: absolute;
+	left: -25px;
+	bottom: 0;
+	width: 0;
+	height: 0;
+	border-right: 25px solid Salmon;
+	border-top: 25px solid transparent;
+	border-bottom: 25px solid transparent;
+}
+
+fieldset:last-of-type button:nth-of-type(2) {
+	background: Silver;
+	border-radius: 5px;
+	padding: 0 .5em;
+}
+
+fieldset:last-of-type button:last-of-type {
+	position: relative;
+	background: DeepSkyBlue;
+	border-radius: 5px 2px 0px 5px;
+	padding-left: .5em;
+	padding-right: .3em;
+}
+
+/* Right arrow shape, courtesy of https://css-tricks.com/the-shapes-of-css/ */
+fieldset:last-of-type button:last-of-type::after {
+	content: "";
+	position: absolute;
+	right: -25px;
+	bottom: 0;
+	width: 0;
+	height: 0;
+	border-left: 25px solid DeepSkyBlue;
+	border-top: 25px solid transparent;
+	border-bottom: 25px solid transparent;
+}

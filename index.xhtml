@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width" />
+	<title>Portrait Reframer</title>
+	<link rel="stylesheet" href="style.css" />
+	<!-- <script src="https://unpkg.com/htmx.org@1.9.5"></script> -->
+	<script src="script.js" defer="true"></script>
+</head>
+<body>
+	<header>
+		<h1>(re)framing portraits</h1>
+		<p>Select the right properties of this portrait:</p>
+	</header>
+	<img id="portrait-image" src="https://placehold.co/300" align="left"/>
+	<form>
+		<fieldset>
+			<legend>Image type</legend>
+			<input type="radio" name="image-type" value="color-photo" id="image-type-color-photo"/>
+			<label for="image-type-color-photo">Color photo</label>
+			<!-- https://commons.wikimedia.org/wiki/Category:Color_portrait_photographs -->
+			<input type="radio" name="image-type" value="bw-photo" id="image-type-bw-photo"/>
+			<label for="image-type-bw-photo">Grayscale photo</label>
+			<!-- https://commons.wikimedia.org/wiki/Category:Black_and_white_portrait_photographs -->
+			<input type="radio" name="image-type" value="painting" id="image-type-painting"/>
+			<label for="image-type-painting">Painting</label>
+			<!-- https://commons.wikimedia.org/wiki/Category:Portrait_paintings -->
+			<input type="radio" name="image-type" value="drawing" id="image-type-drawing"/>
+			<label for="image-type-drawing">Drawing</label>
+			<!-- https://commons.wikimedia.org/wiki/Category:Portrait_drawings -->
+			<input type="radio" name="image-type" value="other"  id="image-type-other" checked="checked"/>
+			<label for="image-type-other">Other / can't tell</label>
+		</fieldset>
+
+		<fieldset>
+			<legend>Subject gender and age</legend>
+			<input type="radio" name="subject" value="man" id="subject-man"/>
+			<label for="subject-man">Man</label>
+			<!-- https://commons.wikimedia.org/wiki/Category:Portraits_of_men -->
+			<input type="radio" name="subject" value="woman" id="subject-woman"/>
+			<label for="subject-woman">Woman</label>
+			<!-- https://commons.wikimedia.org/wiki/Category:Portraits_of_women -->
+			<input type="radio" name="subject" value="boy" id="subject-boy"/>
+			<label for="subject-boy">Boy</label>
+			<!-- https://commons.wikimedia.org/wiki/Category:Portraits_of_boys -->
+			<input type="radio" name="subject" value="girl" id="subject-girl"/>
+			<label for="subject-girl">Girl</label>
+			<!-- https://commons.wikimedia.org/wiki/Category:Portraits_of_girls -->
+			<input type="radio" name="subject" value="other" id="subject-other" checked="checked"/>
+			<label for="subject-other">Other / can't tell</label>
+		</fieldset>
+		<fieldset>
+			<legend>
+				Framing
+				<span id="help-icon" onclick="document.getElementById('framing-help').showModal()">ⓘ</span>
+			</legend>
+			<input type="radio" name="framing" value="extreme-close-up" id="framing-extreme-close-up"/>
+			<label for="framing-extreme-close-up">Extreme close-up (eyes)</label>
+			<!-- https://commons.wikimedia.org/wiki/Category:Extreme_close-up_portraits -->
+			<input type="radio" name="framing" value="close-up" id="framing-close-up"/>
+			<label for="framing-close-up">Close-up (face)</label>
+			<!-- https://commons.wikimedia.org/wiki/Category:Close-up_portraits -->
+			<input type="radio" name="framing" value="shoulder-length" id="framing-shoulder-length"/>
+			<label for="framing-shoulder-length">Shoulder length (head)</label>
+			<!-- https://commons.wikimedia.org/wiki/Category:Portraits_at_shoulder_length -->
+			<input type="radio" name="framing" value="bust-length" id="framing-bust-length"/>
+			<label for="framing-bust-length">Bust length (chest)</label>
+			<!-- https://commons.wikimedia.org/wiki/Category:Portraits_at_bust_length -->
+			<input type="radio" name="framing" value="half-length" id="framing-half-length"/>
+			<label for="framing-half-length">Half length (torso)</label>
+			<!-- https://commons.wikimedia.org/wiki/Category:Portraits_at_half_length -->
+			<input type="radio" name="framing" value="three-quarter-length" id="framing-three-quarter-length"/>
+			<label for="framing-three-quarter-length">Three-quarter length</label>
+			<!-- https://commons.wikimedia.org/wiki/Category:Portraits_at_three-quarter_length -->
+			<input type="radio" name="framing" value="full-length" id="framing-full-length"/>
+			<label for="framing-full-length">Full length (body)</label>
+			<!-- https://commons.wikimedia.org/wiki/Category:Portraits_at_full_length -->
+			<input type="radio" name="framing" value="other" id="framing-other" checked="checked"/>
+			<label for="framing-other">Other / can't tell</label>
+		</fieldset>
+		<fieldset>
+			<button>Prev</button>
+			<button>Skip</button>
+			<button onclick="submit()">Save</button>
+		</fieldset>
+	</form>
+
+	<dialog id="framing-help">
+		<h2>Help</h2>
+		<p>Here's a quick diagram of what each framing type means:</p>
+		<img src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Portrait_cropping_regions.svg" align="left"/>
+		<dl>
+			<div><dt>extreme close-up</dt><dd>typically framing the eyes</dd></div>
+			<div><dt>close-up</dt><dd>showing the face but not the neck</dd></div>
+			<div><dt>shoulder length</dt><dd>showing the head, neck, and at least part of the shoulders</dd></div>
+			<div><dt>bust length</dt><dd>showing the chest but not the elbows (unless raised)</dd></div>
+			<div><dt>½ length</dt><dd>stopping at around the waist</dd></div>
+			<div><dt>¾ length</dt><dd>stopping above the knees (unless raised, e.g. when sitting)</dd></div>
+			<div><dt>full length</dt><dd>showing the entire body</dd></div>
+		</dl>
+		<form method="dialog"><button>Close</button></form>
+	</dialog>
+</body>
+</html>

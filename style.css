@@ -10,8 +10,10 @@ img[align=left] {
 	cursor: pointer;
 }
 
-/* Hide radio buttons and use the labels as pressable buttons.
- * Based on https://stackoverflow.com/a/22462740/266309 */
+/* ---- TOGGLE BUTTONS ------------------------------------------------------ */
+/* Hide radio buttons and use the labels as pressable buttons.                */
+/* Based on https://stackoverflow.com/a/22462740/266309                       */
+
 input[type=radio] {
 	position: fixed;
 	opacity: 0;
@@ -41,6 +43,9 @@ fieldset {
 fieldset > legend {
 	font-size: 1.5em
 }
+
+/* ---- FRAMING REFERENCE POPUP --------------------------------------------- */
+/* Show a floating pane with information about the various types of framing   */
 
 dialog {
 	width: 80vw;
@@ -73,6 +78,9 @@ dialog dl div:nth-of-type(5) dt { background-color: #75c1ca; }
 dialog dl div:nth-of-type(6) dt { background-color: #92a7c1; }
 dialog dl div:nth-of-type(7) dt { background-color: #a28da7; }
 
+/* ---- SUBMIT BUTTONS ------------------------------------------------------ */
+/* Customize appearance of the Previous, Skip and Next buttons                */
+/* at the bottom of the page.                                                 */
 
 fieldset:last-of-type {
 	text-align: center;

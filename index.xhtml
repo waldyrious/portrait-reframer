@@ -12,8 +12,10 @@
 	<header>
 		<h1>(re)framing portraits</h1>
 		<p>Select the right properties of this portrait:</p>
+		<p id="image-counter">Loading images...</p>
+		<p><a id="file-link" href="#" target="_blank">View on Commons</a></p>
 	</header>
-	<img id="portrait-image" src="https://placehold.co/300" align="left"/>
+	<img id="portrait-image" src="https://placehold.co/300" alt="Portrait image" align="left"/>
 	<form>
 		<fieldset>
 			<legend>Image type</legend>
@@ -80,11 +82,19 @@
 			<label for="framing-other">Other / can't tell</label>
 		</fieldset>
 		<fieldset>
-			<button>Prev</button>
-			<button>Skip</button>
-			<button onclick="submit()">Save</button>
+			<button type="button" onclick="prevImage()">Prev</button>
+			<button type="button" onclick="skipImage()">Skip</button>
+			<button type="button" onclick="saveAndNext()">Save</button>
 		</fieldset>
 	</form>
+
+	<section id="output-section">
+		<h2>QuickCategories commands</h2>
+		<p>Copy and paste these into <a href="https://quickcategories.toolforge.org/" target="_blank">QuickCategories</a> to apply the changes:</p>
+		<textarea id="output" rows="10" readonly="readonly"></textarea>
+		<button type="button" onclick="document.getElementById('output').select(); document.execCommand('copy');">Copy to clipboard</button>
+		<button type="button" onclick="document.getElementById('output').value = '';">Clear</button>
+	</section>
 
 	<dialog id="framing-help">
 		<h2>Help</h2>

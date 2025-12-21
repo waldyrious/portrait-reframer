@@ -149,3 +149,30 @@ fieldset:last-of-type button:last-of-type::after {
 	border-top: 25px solid transparent;
 	border-bottom: 25px solid transparent;
 }
+
+/* ---- OUTPUT SECTION ------------------------------------------------------ */
+/* Display area for QuickCategories commands                                  */
+
+#output-section {
+	clear: both;
+	margin-top: 2em;
+	padding: 1em;
+	border-top: 2px solid #999;
+}
+
+#output-section h2 {
+	margin-top: 0;
+}
+
+#output {
+	width: 100%;
+	font-family: monospace;
+	font-size: 0.9em;
+}
+
+#output-section button {
+	margin-top: 0.5em;
+	margin-right: 0.5em;
+	padding: 0.5em 1em;
+	border-radius: 5px;
+}

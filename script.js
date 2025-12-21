@@ -1,70 +1,140 @@
-// Docs: https://commons.wikimedia.org/w/api.php?action=help&amp;modules=query%2Bcategorymembers
-fetch("https://commons.wikimedia.org/w/api.php?action=query&amp;list=categorymembers&amp;cmtitle=Category:Portraits&amp;cmtype=file&amp;cmprop=title&amp;cmlimit=100&amp;format=json&amp;origin=*")
-.then(response => response.json())
-.then(data => {
-	const images = data.query.categorymembers.filter(member => /\.(jpg|jpeg|png|gif|bmp)$/i.test(member.title));
-	var image = images[1];
-	var imgTag = document.getElementById("portrait-image");
-	imgTag.setAttribute("src", "https://commons.wikimedia.org/wiki/Special:FilePath/" + image.title + "?width=300");
-	document.body.appendChild(imgTag);
-});
+// Global variables to track state
+var images = [];
+var currentIndex = 0;
 
-async function submit() {
-	// Determine category intersections from selected options
-	// TODO
+// Category mappings for each option
+var imageTypeCategories = {
+	"color-photo": "Color portrait photographs",
+	"bw-photo": "Black and white portrait photographs",
+	"painting": "Portrait paintings",
+	"drawing": "Portrait drawings",
+	"other": ""
+};
 
-	// Prepare and submit changes
-	// TODO
+var subjectCategories = {
+	"man": "Portraits of men",
+	"woman": "Portraits of women",
+	"boy": "Portraits of boys",
+	"girl": "Portraits of girls",
+	"other": ""
+};
 
-	// Return without doing anything (the code below is a draft)
-	return;
+var framingCategories = {
+	"extreme-close-up": "Extreme close-up portraits",
+	"close-up": "Close-up portraits",
+	"shoulder-length": "Portraits at shoulder length",
+	"bust-length": "Portraits at bust length",
+	"half-length": "Portraits at half length",
+	"three-quarter-length": "Portraits at three-quarter length",
+	"full-length": "Portraits at full length",
+	"other": ""
+};
 
-	// Get the user's choice from your radio buttons. Assuming they have values "man" or "woman".
-	const userChoice = document.querySelector('input[name="gender"]:checked').value;
+// Fetch images from the Portraits category
+// Docs: https://commons.wikimedia.org/w/api.php?action=help&modules=query%2Bcategorymembers
+var apiUrl = "https://commons.wikimedia.org/w/api.php?action=query&list=categorymembers&cmtitle=Category:Portraits&cmtype=file&cmprop=title&cmlimit=100&format=json&origin=*";
 
-	// Construct new category based on user choice
-	const newCategory = userChoice === 'man' ? 'Category:Photographs_of_men' : 'Category:Photographs_of_women';
-
-	// Page title here (the file you're editing)
-	const pageTitle = 'File:Some_image.jpg';
-
-	// CSRF token for editing (probably will need to be changed when OAuth is implemented)
-	const token = 'YOUR_CSRF_TOKEN_HERE';
-
-	// First, fetch the current content of the page
-	const fetchContentResponse = await fetch(`https://commons.wikimedia.org/w/api.php?action=query&titles=${pageTitle}&prop=revisions&rvprop=content&format=json`);
-	const fetchContentData = await fetchContentResponse.json();
-	let pageContent = fetchContentData.query.pages[Object.keys(fetchContentData.query.pages)[0]].revisions[0]['*'];
-
-	// Remove the generic category
-	pageContent = pageContent.replace(/\[\[Category:Portraits\]\]/g, '');
-
-	// Append the new category
-	pageContent += `\n[[${newCategory}]]`;
-
-	// Update the page
-	const formData = new URLSearchParams({
-		'action': 'edit',
-		'title': pageTitle,
-		'text': pageContent,
-		'token': token,
-		'format': 'json'
-	});
-	const editResponse = await fetch('https://commons.wikimedia.org/w/api.php', {
-		method: 'POST',
-		body: formData,
-		headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
-		credentials: 'include'
-	});
-
-	const editResult = await editResponse.json();
-
-	if (editResult.edit && editResult.edit.result === 'Success') {
-		alert("Category updated!");
-	} else {
-		alert("Failed to update category.");
+var request = new XMLHttpRequest();
+request.open("GET", apiUrl, true);
+request.onload = function() {
+	if (request.status === 200) {
+		var data = JSON.parse(request.responseText);
+		var members = data.query.categorymembers;
+		
+		// Filter to only image files
+		for (var i = 0; i < members.length; i++) {
+			var title = members[i].title;
+			if (/\.(jpg|jpeg|png|gif|bmp)$/i.test(title)) {
+				images.push(title);
+			}
+		}
+		
+		// Show first image
+		if (images.length > 0) {
+			showImage(0);
+		}
 	}
+};
+request.send();
 
-	// Load next image
-	// TODO
+// Display the image at the given index
+function showImage(index) {
+	currentIndex = index;
+	var imgTag = document.getElementById("portrait-image");
+	var imageTitle = images[currentIndex];
+	imgTag.setAttribute("src", "https://commons.wikimedia.org/wiki/Special:FilePath/" + imageTitle + "?width=300");
+	
+	// Update counter display
+	var counter = document.getElementById("image-counter");
+	counter.textContent = "Image " + (currentIndex + 1) + " of " + images.length;
+	
+	// Update file link
+	var fileLink = document.getElementById("file-link");
+	fileLink.href = "https://commons.wikimedia.org/wiki/" + imageTitle;
+	fileLink.textContent = imageTitle.replace("File:", "");
+	
+	// Reset radio buttons to "other" defaults
+	document.getElementById("image-type-other").checked = true;
+	document.getElementById("subject-other").checked = true;
+	document.getElementById("framing-other").checked = true;
+}
+
+// Navigate to previous image
+function prevImage() {
+	if (currentIndex > 0) {
+		showImage(currentIndex - 1);
+	}
+}
+
+// Skip to next image without saving
+function skipImage() {
+	if (currentIndex < images.length - 1) {
+		showImage(currentIndex + 1);
+	}
+}
+
+// Save current selection and move to next image
+function saveAndNext() {
+	// Get selected values
+	var imageType = document.querySelector('input[name="image-type"]:checked').value;
+	var subject = document.querySelector('input[name="subject"]:checked').value;
+	var framing = document.querySelector('input[name="framing"]:checked').value;
+	
+	// Build list of categories to add
+	var categoriesToAdd = [];
+	
+	if (imageTypeCategories[imageType] !== "") {
+		categoriesToAdd.push(imageTypeCategories[imageType]);
+	}
+	if (subjectCategories[subject] !== "") {
+		categoriesToAdd.push(subjectCategories[subject]);
+	}
+	if (framingCategories[framing] !== "") {
+		categoriesToAdd.push(framingCategories[framing]);
+	}
+	
+	// Only generate command if at least one category was selected
+	if (categoriesToAdd.length > 0) {
+		var fileTitle = images[currentIndex];
+		
+		// Build QuickCategories command
+		// Format: File:Example.jpg|+Category:New category|-Category:Old category
+		var command = fileTitle;
+		
+		for (var i = 0; i < categoriesToAdd.length; i++) {
+			command = command + "|+Category:" + categoriesToAdd[i];
+		}
+		
+		// Remove from generic Portraits category
+		command = command + "|-Category:Portraits";
+		
+		// Add to output
+		var output = document.getElementById("output");
+		output.value = output.value + command + "\n";
+	}
+	
+	// Move to next image
+	if (currentIndex < images.length - 1) {
+		showImage(currentIndex + 1);
+	}
 }

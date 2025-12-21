@@ -4,6 +4,13 @@ var currentIndex = 0;
 var totalFetched = 0;
 var excludedCount = 0;
 
+// Load skipped files from localStorage
+var skippedFiles = [];
+var storedSkipped = localStorage.getItem("skippedFiles");
+if (storedSkipped) {
+	skippedFiles = JSON.parse(storedSkipped);
+}
+
 // Category mappings for each option
 var imageTypeCategories = {
 	"color-photo": "Color portrait photographs",
@@ -44,14 +51,18 @@ request.onload = function() {
 		var members = data.query.categorymembers;
 		totalFetched = members.length;
 		
-		// Filter to only browser-compatible image files
-		for (var i = 0; i < members.length; i++) {
-			var title = members[i].title;
-			if (/\.(jpg|jpeg|png|gif|bmp|svg|webp|avif|ico)$/i.test(title)) {
-				images.push(title);
-			}
-		}
-		excludedCount = totalFetched - images.length;
+		// Filter to only browser-compatible image files, excluding previously skipped files
+		// Extract just the title from each member object
+		images = members.map(function(m) { return m.title; })
+			// Keep only files with browser-compatible image extensions
+			.filter(function(title) {
+				return /\.(jpg|jpeg|png|gif|bmp|svg|webp|avif|ico)$/i.test(title);
+			})
+			// Exclude files that were previously skipped
+			.filter(function(title) {
+				return !skippedFiles.includes(title);
+			});
+		excludedCount = totalFetched - images.length - skippedFiles.length;
 		
 		// Show first image
 		if (images.length > 0) {
@@ -109,8 +120,20 @@ function prevImage() {
 
 // Skip to next image without saving
 function skipImage() {
-	if (currentIndex < images.length - 1) {
-		showImage(currentIndex + 1);
+	// Save current file to skipped list
+	var fileTitle = images[currentIndex];
+	skippedFiles.push(fileTitle);
+	localStorage.setItem("skippedFiles", JSON.stringify(skippedFiles));
+	
+	// Remove from current images array
+	images.splice(currentIndex, 1);
+	
+	if (currentIndex < images.length) {
+		// The next image has shifted into the current index position
+		showImage(currentIndex);
+	} else if (images.length > 0) {
+		// We were at the last image, so show the new last image
+		showImage(images.length - 1);
 	}
 }
 

@@ -143,8 +143,10 @@ function saveAndNext() {
 			command = command + "|+Category:" + categoriesToAdd[i];
 		}
 		
-		// Remove from generic Portraits category
-		command = command + "|-Category:Portraits";
+		// Remove from generic Portraits category (except if the image type was not specified)
+		if (imageType !== "other") {
+			command = command + "|-Category:Portraits";
+		}
 		
 		// Add to output
 		var output = document.getElementById("output");

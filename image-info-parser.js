@@ -63,8 +63,15 @@ function fetchFileInfo(fileTitle) {
 				var metadata = pages[pageId].imageinfo[0].extmetadata;
 				
 				// Extract description from ImageDescription field
+				// (or ObjectName field for files using the Artwork template)
+				var description = "";
 				if (metadata.ImageDescription && metadata.ImageDescription.value) {
-					var description = metadata.ImageDescription.value;
+					description = metadata.ImageDescription.value;
+				} else if (metadata.ObjectName && metadata.ObjectName.value) {
+					description = metadata.ObjectName.value;
+				}
+				
+				if (description) {
 					// Strip HTML tags for plain text display
 					description = description.replace(/<[^>]*>/g, "");
 					description = description.trim();

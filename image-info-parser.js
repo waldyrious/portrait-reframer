@@ -1,3 +1,43 @@
+// Patterns for hidden categories that should not be shown in the UI
+// Loaded from hidden-cats-regex.txt
+var hiddenCategoryPatterns = [];
+
+// Load hidden category patterns from file
+fetch("hidden-cats-regex.txt")
+	.then(function(response) { return response.text(); })
+	.then(function(text) {
+		var lines = text.split("\n");
+		for (var i = 0; i < lines.length; i++) {
+			var line = lines[i].trim();
+			// Skip empty lines and comments
+			if (line !== "" && line.charAt(0) !== "#") {
+				hiddenCategoryPatterns.push(line);
+			}
+		}
+	});
+
+// Check if a category name matches any hidden category pattern
+function isHiddenCategory(categoryName) {
+	for (var i = 0; i < hiddenCategoryPatterns.length; i++) {
+		var pattern = new RegExp("^" + hiddenCategoryPatterns[i] + "$", "i");
+		if (pattern.test(categoryName)) {
+			return true;
+		}
+	}
+	return false;
+}
+
+// Filter out hidden categories from a list
+function filterVisibleCategories(categories) {
+	var visible = [];
+	for (var i = 0; i < categories.length; i++) {
+		if (!isHiddenCategory(categories[i])) {
+			visible.push(categories[i]);
+		}
+	}
+	return visible;
+}
+
 // Fetch description and categories from file page using imageinfo API
 function fetchFileInfo(fileTitle) {
 	var descSpan = document.getElementById("file-description");
@@ -37,11 +77,13 @@ function fetchFileInfo(fileTitle) {
 				if (metadata.Categories && metadata.Categories.value) {
 					var categoriesStr = metadata.Categories.value;
 					// Categories are pipe-separated in the API response
-					var categories = categoriesStr.split("|");
-					if (categories.length > 0 && categories[0] !== "") {
-						catSpan.textContent = categories.join(", ");
+					var allCategories = categoriesStr.split("|");
+					// Filter out hidden categories
+					var visibleCategories = filterVisibleCategories(allCategories);
+					if (visibleCategories.length > 0) {
+						catSpan.textContent = visibleCategories.join(", ");
 					} else {
-						catSpan.textContent = "(no categories)";
+						catSpan.textContent = "(no visible categories)";
 					}
 				} else {
 					catSpan.textContent = "(no categories)";

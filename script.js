@@ -1,6 +1,8 @@
 // Global variables to track state
 var images = [];
 var currentIndex = 0;
+var totalFetched = 0;
+var excludedCount = 0;
 
 // Category mappings for each option
 var imageTypeCategories = {
@@ -40,14 +42,16 @@ request.onload = function() {
 	if (request.status === 200) {
 		var data = JSON.parse(request.responseText);
 		var members = data.query.categorymembers;
+		totalFetched = members.length;
 		
-		// Filter to only image files
+		// Filter to only browser-compatible image files
 		for (var i = 0; i < members.length; i++) {
 			var title = members[i].title;
-			if (/\.(jpg|jpeg|png|gif|bmp)$/i.test(title)) {
+			if (/\.(jpg|jpeg|png|gif|bmp|svg|webp|avif|ico)$/i.test(title)) {
 				images.push(title);
 			}
 		}
+		excludedCount = totalFetched - images.length;
 		
 		// Show first image
 		if (images.length > 0) {
@@ -66,7 +70,21 @@ function showImage(index) {
 	
 	// Update counter display
 	var counter = document.getElementById("image-counter");
-	counter.textContent = "Image " + (currentIndex + 1) + " of " + images.length;
+	var counterText = "Image " + (currentIndex + 1) + " of " + images.length;
+	if (excludedCount > 0) {
+		counterText = counterText + " (out of " + totalFetched + " ";
+		counter.textContent = counterText;
+		// Add info icon with tooltip
+		var infoIcon = document.createElement("span");
+		infoIcon.textContent = "ⓘ";
+		infoIcon.className = "help-icon";
+		infoIcon.title = "Excluded " + excludedCount + " non-image files (.ogg, .wav, etc.)";
+		counter.appendChild(infoIcon);
+		var closeParen = document.createTextNode(")");
+		counter.appendChild(closeParen);
+	} else {
+		counter.textContent = counterText;
+	}
 	
 	// Update file link
 	var fileLink = document.getElementById("file-link");

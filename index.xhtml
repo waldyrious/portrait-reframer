@@ -101,6 +101,16 @@
 		<button type="button" onclick="document.getElementById('output').value = '';">Clear</button>
 	</section>
 
+	<section id="skipped-section" style="display: none;">
+		<h2>Skipped files</h2>
+		<p id="skipped-list"></p>
+		<button type="button" onclick="clearSkippedFiles()">Clear skipped files</button>
+	</section>
+
+	<footer>
+		<a href="#" onclick="toggleSkippedFiles(); return false;">Toggle skipped files</a>
+	</footer>
+
 	<dialog id="framing-help">
 		<h2>Help</h2>
 		<p>Here's a quick diagram of what each framing type means:</p>

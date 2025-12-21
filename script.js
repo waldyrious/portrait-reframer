@@ -137,6 +137,44 @@ function skipImage() {
 	}
 }
 
+// Toggle the skipped files section visibility
+function toggleSkippedFiles() {
+	var section = document.getElementById("skipped-section");
+	var list = document.getElementById("skipped-list");
+	
+	// Toggle visibility
+	if (section.style.display === "block") {
+		section.style.display = "none";
+		return;
+	}
+	
+	section.style.display = "block";
+	
+	// Populate the list
+	if (skippedFiles.length === 0) {
+		list.textContent = "(no skipped files)";
+	} else {
+		list.textContent = "";
+		for (var i = 0; i < skippedFiles.length; i++) {
+			var link = document.createElement("a");
+			link.href = "https://commons.wikimedia.org/wiki/" + skippedFiles[i];
+			link.target = "_blank";
+			link.textContent = skippedFiles[i].replace("File:", "");
+			list.appendChild(link);
+			if (i < skippedFiles.length - 1) {
+				list.appendChild(document.createTextNode(", "));
+			}
+		}
+	}
+}
+
+// Clear the skipped files list
+function clearSkippedFiles() {
+	skippedFiles = [];
+	localStorage.removeItem("skippedFiles");
+	document.getElementById("skipped-list").textContent = "(no skipped files)";
+}
+
 // Save current selection and move to next image
 function saveAndNext() {
 	// Get selected values

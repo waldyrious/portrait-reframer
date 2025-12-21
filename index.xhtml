@@ -6,6 +6,7 @@
 	<title>Portrait Reframer</title>
 	<link rel="stylesheet" href="style.css" />
 	<!-- <script src="https://unpkg.com/htmx.org@1.9.5"></script> -->
+	<script src="image-info-parser.js" defer="true"></script>
 	<script src="script.js" defer="true"></script>
 </head>
 <body>
@@ -14,6 +15,10 @@
 		<p>Select the right properties of this portrait:</p>
 		<p id="image-counter">Loading images...</p>
 		<p><a id="file-link" href="#" target="_blank">View on Commons</a></p>
+		<div id="file-info">
+			<p class="expandable"><strong>Description:</strong> <span id="file-description">Loading...</span></p>
+			<p class="expandable"><strong>Categories:</strong> <span id="file-categories">Loading...</span></p>
+		</div>
 	</header>
 	<img id="portrait-image" src="https://placehold.co/300" alt="Portrait image" align="left"/>
 	<form>

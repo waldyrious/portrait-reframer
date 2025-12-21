@@ -95,6 +95,9 @@ function showImage(index) {
 	document.getElementById("image-type-other").checked = true;
 	document.getElementById("subject-other").checked = true;
 	document.getElementById("framing-other").checked = true;
+	
+	// Fetch and display file info (description and categories)
+	fetchFileInfo(imageTitle);
 }
 
 // Navigate to previous image

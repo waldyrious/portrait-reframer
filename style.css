@@ -10,6 +10,29 @@ img[align=left] {
 	cursor: pointer;
 }
 
+#file-info {
+	font-size: 0.9em;
+	margin-bottom: 1em;
+}
+
+#file-info p {
+	margin: 0.3em 0;
+}
+
+#file-info p.expandable {
+	max-height: 1.4em;
+	overflow: hidden;
+	transition: max-height 0.3s ease;
+}
+
+#file-info p.expandable:hover {
+	max-height: 10em;
+}
+
+#file-description, #file-categories {
+	color: #555;
+}
+
 /* ---- TOGGLE BUTTONS ------------------------------------------------------ */
 /* Hide radio buttons and use the labels as pressable buttons.                */
 /* Based on https://stackoverflow.com/a/22462740/266309                       */

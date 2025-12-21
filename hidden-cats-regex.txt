@@ -1,13 +1,9 @@
 # Patterns to filter out hidden categories from the displayed category list
 # Source: https://quarry.wmcloud.org/query/100200
 
-.+ \(review needed\)
+# ---- UPLOAD/CONTRIBUTION METADATA ----
 .+ files uploaded by .+
-.+ from Gallica.*
-.+ missing SDC .+
 .+ taken on \d\d\d\d-\d\d-\d\d$
-.+ with known IDs
-.+ with(out)? Wikidata item.*
 .+\b(supported|uploaded|released|contributed|donated) by .+
 (Images|Media|Files|Uploads|Photos|Photographs|Scans) (lacking|missing|needing) .+
 (Images|Media|Files|Uploads|Photos|Photographs|Scans) by .+
@@ -15,45 +11,12 @@
 (Images|Media|Files|Uploads|Photos|Photographs|Scans) released under .+
 (Images|Media|Files|Uploads|Photos|Photographs|Scans) using data from .+
 (Images|Media|Files|Uploads|Photos|Photographs|Scans) with(out)? .+
-(Unspec |Valid )?(New )?SVG created with .+
 All media .+
-Ambiguous location in EXIF
-Apache License
-Artworks .+
 Assumed own work
-Attribution only license
-Author died more than \d+ years ago public domain images
-Aviation files .+
-Base Mérimée
 Batch created .+
-Biodiversity Heritage Library .+
-Black and white photographs
-Books from the Biodiversity Heritage Library
-Books in the Library of Congress
-Books uploaded by .+
-Brazil images by Paul R. Burley
-Buildings with addresses
-California Digital Library
-CC-(BY|PD|Zero).*
-CeCILL
-Collections of Staatsarchiv Freiburg
-Content made available through .+
-Content media by years - Supported by .+
-Convair Negatives
-Copyrighted free use
 Created with .+
-Creative Commons .+
-Cultural( heritage)? monument.+
-Dan Hadani collection.*
-Data license .+
 Derivative versions
-Digital Public Library of America files.*
-European Union license
-Executive Office of the President files
-Expat/MIT License
 Extracted images
-FAL
-Festivalsommer \d\d\d\d
 Files allowed to be overwritten by everyone
 Files by .+
 Files created by .+
@@ -62,104 +25,158 @@ Files supported by .+
 Files that need updating .+
 Files uploaded .+
 Files with .+
-Flickr (files|images).*
-FoP-Germany
+Import by .+
+JPG images .+
+Large images
+Photos,? .+
+Retouched pictures
+Self-published work
+Supported by .+
+Taken with .+
+Uploaded .+
+
+# ---- LICENSES AND COPYRIGHT ----
+Apache License
+Attribution only license
+Author died more than \d+ years ago public domain images
+CC-(BY|PD|Zero).*
+CeCILL
+Copyrighted free use
+Creative Commons .+
+Data license .+
+European Union license
+Expat/MIT License
+FAL
 Free screenshots
-Geocoded images of .+
-George Grantham Bain Collection
 GFDL.*
 GJSTU-2.0
-GLAM National Library of Israel
-Gnuplot charts using data from the Australian Bureau of Statistics
 GODL-India
 GPL
+LaTeX License files
+Licence Ouverte
+License (migration|review).*
+Licensed-PD-Art .+
+Library of Congress-no known copyright restrictions
+No known copyright
+ODbL OpenStreetMap
+OFL
+OGL v3.0
+PD( |-|Mark).*
+UK Government artistic works
+
+# ---- WIKIDATA AND SDC METADATA ----
+.+ missing SDC .+
+.+ with(out)? Wikidata item.*
+Artworks .+
+Information field template with formatting
+Institution templates with redirected Wikidata link
+Pages with .+
+
+# ---- MONUMENT/HERITAGE REGISTRIES ----
+.+ with known IDs
+Base Mérimée
+Cultural( heritage)? monument.+
+Listed buildings in .+
+Mérimée with PA parameter
+Mérimée without type parameter
+Monuments historiques (classés|inscrits)
+Objets monuments historiques classés
+On OSM
+Palissy
+Palissy with PM parameter
+
+# ---- QUALITY/REVIEW STATUS ----
+.+ \(review needed\)
+INaturalist images reviewed by iNaturalistReviewBot
+Items with ticket accreditation
+Items with VRTS permission confirmed
+Panoramio images reviewed by trusted users
+Quality images.*
+Reviewed images from Fotopolska
+Unassessed QI candidates
+Valued images.*
+
+# ---- IMAGE FORMAT/TECHNICAL ----
+Ambiguous location in EXIF
+Black and white photographs
+Geocoded images of .+
+ISO speed rating 100
+Ogv videos
+Photographs with aspect ratio.+
+PNG that should use vector graphics
+PNGs with JPEG versions
+(Unspec |Valid )?(New )?SVG created with .+
+Vector version available
+Videos from open-access scholarly articles
+
+# ---- SPECIFIC COLLECTIONS/SOURCES ----
+.+ from Gallica.*
+Aviation files .+
+Biodiversity Heritage Library .+
+Books from the Biodiversity Heritage Library
+Books in the Library of Congress
+Books uploaded by .+
+California Digital Library
+Collections of Staatsarchiv Freiburg
+Content made available through .+
+Content media by years - Supported by .+
+Convair Negatives
+Dan Hadani collection.*
+Digital Public Library of America files.*
+Executive Office of the President files
+Festivalsommer \d\d\d\d
+Flickr (files|images).*
+FoP-Germany
+George Grantham Bain Collection
+GLAM National Library of Israel
+Gnuplot charts using data from the Australian Bureau of Statistics
 GWToolset Batch Upload
 Harris & Ewing Collection
 High-resolution TIFF images from the National Archives and Records Administration
 IA books of at least 500 pages
-Import by .+
-INaturalist images reviewed by iNaturalistReviewBot
-Information field template with formatting
-Institution templates with redirected Wikidata link
 Internet Archive.*
-ISO speed rating 100
-Italian MiBAC disclaimer warning
-Items with ticket accreditation
-Items with VRTS permission confirmed
-JPG images .+
-Large images
-LaTeX License files
-Library of Congress-no known copyright restrictions
-Licence Ouverte
-License (migration|review).*
-Licensed-PD-Art .+
-Listed buildings in .+
 Literary works uploaded by Steven Pavlov from various sources
 Maps in the Library of Congress
 Marines.mil photos requiring renaming
-Mediagrant.*
 Medical Heritage Library
-Mérimée with PA parameter
-Mérimée without type parameter
+Mediagrant.*
 Milimedia files, .+
 Miscellaneous Items in High Demand, PPOC, Library of Congress
-Monuments historiques (classés|inscrits)
 National Library of Israel/Dan Hadani collection
 National Photo Company Collection
 Neuchâtel Herbarium Project
 NeuroMat's partnership with Museu Paulista USP
-No known copyright
 NYPL The Miriam and Ira D. Wallach Division of Art, Prints and Photographs: Photography Collection
 Objects with inscriptions (language unspecified)
-Objets monuments historiques classés
-ODbL OpenStreetMap
-OFL
-OGL v3.0
-Ogv videos
 Old books from American Libraries
 Old books in Internet Archive additional collections
-On OSM
-Pages with .+
-Palissy
-Palissy with PM parameter
-Panoramio images reviewed by trusted users
 Patrimonium( 2)? \(project\)
-PD( |-|Mark).*
-Personality rights warning
-Photographs with aspect ratio.+
-Photos,? .+
 Pictures uploaded from Drobnepamatky.cz
-PNG that should use vector graphics
-PNGs with JPEG versions
 Project Korikath-.+
 Proyecto fotográfico Juegos Olímpicos de la Juventud 2018 en Buenos Aires
 Public domain files using NoC-US rights statement
-Quality images.*
-Retouched pictures
-Reviewed images from Fotopolska
 Robert N. Dennis collection of stereoscopic views
 Scans with a SSID
-Self-published work
 Skipped Images from Nationaal Archief
 Sport images supported by Wikimedia Chapters
 Staatsarchiv Freiburg Findbuch W 134 \(Filmnegative II\)
-Supported by .+
-Taken with .+
 Template Unknown .+
-Text logos
-UK Government artistic works
-Unassessed QI candidates
-Unknown date
-Unsupported object
-Uploaded .+
 US National Archives .+
-User-created GFDL images
-Valued images.*
-Vector version available
-Videos from open-access scholarly articles
 Web Summit flickr stream
 Wiki (Loves|Movement|Exploration) .+
 Wikiproject Roadside memorials and tombstones in Serbia
+
+# ---- WARNINGS/DISCLAIMERS ----
+Buildings with addresses
+Italian MiBAC disclaimer warning
+Personality rights warning
+Text logos
+Unknown date
+Unsupported object
+User-created GFDL images
 With insignia
 With trademark
+
+# ---- REGIONAL/PROJECT SPECIFIC ----
+Brazil images by Paul R. Burley
 WLM 2016 India unreviewed

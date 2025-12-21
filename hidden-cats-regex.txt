@@ -1,0 +1,225 @@
+
+
+.+ files uploaded by .+
+.+ taken on \d\d\d\d-\d\d-\d\d$
+.+\b(supported|uploaded|released|contributed|donated) by .+
+(Images|Media|Files|Uploads|Photos|Photographs|Scans) (lacking|missing|needing) .+
+(Images|Media|Files|Uploads|Photos|Photographs|Scans) by .+
+(Images|Media|Files|Uploads|Photos|Photographs|Scans) from .+
+(Images|Media|Files|Uploads|Photos|Photographs|Scans) released under .+
+(Images|Media|Files|Uploads|Photos|Photographs|Scans) using data from .+
+(Images|Media|Files|Uploads|Photos|Photographs|Scans) with(out)? .+
+All media .+
+Ambiguous location in EXIF
+Apache License
+Artworks digital representation of 2D work
+Artworks digital representation of unclassified work
+Artworks digital representation of unknown type of work
+Artworks main subject 3D work
+Artworks with accession number from Wikidata
+Artworks with known accession number
+Artworks with SDC link missing
+Artworks with Wikidata item.*
+Artworks without Wikidata item
+ASI monuments with known IDs
+Assumed own work
+Attribution only license
+Author died more than \d+ years ago public domain images
+Aviation files .+
+Base Mérimée
+Batch created .+
+Biodiversity Heritage Library maintenance missing collection
+Biodiversity Heritage Library maintenance missing date
+Black and white photographs
+Books from the Biodiversity Heritage Library
+Books in the Library of Congress
+Books uploaded by .+
+Books with(out)? Wikidata item.*
+Brazil images by Paul R. Burley
+Buildings with addresses
+California Digital Library
+CC-BY-.+
+CC-PD-Mark
+CC-Zero
+CeCILL
+Coins from Gallica
+Coins from Gallica needing categories
+Collections of Staatsarchiv Freiburg
+Content made available through .+
+Content media by years - Supported by .+
+Convair Negatives
+Copyrighted free use
+Created with .+
+Creative Commons .+
+Cultural( heritage)? monument.+
+Dan Hadani collection.*
+Data license .+
+Deprecated template usage: AttribSVG
+Derivative versions
+Digital Public Library of America files.*
+European Union license
+Executive Office of the President files
+Expat/MIT License
+Extracted images
+FAL
+Festivalsommer \d\d\d\d
+Files allowed to be overwritten by everyone
+Files by .+
+Files created by .+
+Files from .+
+Files supported by .+
+Files that need updating .+
+Files uploaded .+
+Files with .+
+Finna review needed
+Flickr (files|images).*
+FoP-Germany
+Free screenshots
+Gemeentelijke monumenten with known IDs
+Geocoded images of .+
+George Grantham Bain Collection
+GFDL.*
+GJSTU-2.0
+GLAM National Library of Israel
+Gnuplot charts using data from the Australian Bureau of Statistics
+GODL-India
+GPL
+GWToolset Batch Upload
+Harris & Ewing Collection
+Heritage sites in Israel with known IDs
+High-resolution TIFF images from the National Archives and Records Administration
+IA books of at least 500 pages
+Import by .+
+INaturalist images missing SDC depicts
+INaturalist images reviewed by iNaturalistReviewBot
+Information field template with formatting
+Institution templates with redirected Wikidata link
+Internet Archive.*
+ISO speed rating 100
+Italian MiBAC disclaimer warning
+Items with ticket accreditation
+Items with VRTS permission confirmed
+JPG images .+
+Large images
+LaTeX License files
+Library of Congress-no known copyright restrictions
+Licence Ouverte
+License (migration|review).*
+Licensed-PD-Art .+
+Listed buildings in .+
+Literary works uploaded by Steven Pavlov from various sources
+Manuscripts from Gallica (Bibliothèque nationale de France) uploaded by Gzen92Bot
+Maps in the Library of Congress
+Marines.mil photos requiring renaming
+Mediagrant.*
+Medical Heritage Library
+Mérimée with PA parameter
+Mérimée without type parameter
+Milimedia files, Germany (review needed)
+Milimedia files, Italy (review needed)
+Miscellaneous Items in High Demand, PPOC, Library of Congress
+Monuments historiques classés
+Monuments historiques inscrits
+National Library of Israel/Dan Hadani collection
+National Photo Company Collection
+National Register of Historic Places missing SDC depicts
+National Register of Historic Places missing SDC location of creation
+National Register of Historic Places with known IDs
+Natural heritage sites in Ukraine with known IDs
+Neuchâtel Herbarium Project
+NeuroMat's partnership with Museu Paulista USP
+No known copyright
+NYPL The Miriam and Ira D. Wallach Division of Art, Prints and Photographs: Photography Collection
+Objects from Gallica (Bibliothèque nationale de France) uploaded by Gzen92Bot
+Objects with inscriptions (language unspecified)
+Objets monuments historiques classés
+ODbL OpenStreetMap
+OFL
+OGL v3.0
+Ogv videos
+Old books from American Libraries
+Old books in Internet Archive additional collections
+On OSM
+Onroerend erfgoed with known IDs
+Pages with camera coordinates from SDC
+Pages with complex technique templates
+Pages with local camera coordinates and missing SDC coordinates
+Pages with maps
+Paintings without Wikidata item
+Palissy
+Palissy with PM parameter
+Panoramio images reviewed by trusted users
+Patrimonium (project)
+Patrimonium 2 (project)
+PD( |-|Mark).*
+Personality rights warning
+Photographs with aspect ratio.+
+Photos imported with import-500px
+Photos in Flickr Explore
+Photos of Belgium by user Jean Housen
+Photos taken by DarwIn
+Photos taken with Kodak DCS 760
+Photos taken with WMCZ camera
+Photos uploaded by Rept0n1x
+Photos uploaded from Flickr by Fæ using a script
+Photos, created by Andrew Butko uncategorised by topic
+Photos, created by Andrew Butko with Nikon D7000
+Pictures uploaded from Drobnepamatky.cz
+PNG that should use vector graphics
+PNGs with JPEG versions
+Project Korikath-All images
+Project Korikath-Unreviewed
+Protected areas of Russia with known IDs
+Proyecto fotográfico Juegos Olímpicos de la Juventud 2018 en Buenos Aires
+Public domain files using NoC-US rights statement
+Quality images
+Quality images missing SDC creator
+Quality images missing SDC depicts
+Retouched pictures
+Reviewed images from Fotopolska
+Rijksmonumenten with known IDs
+Robert N. Dennis collection of stereoscopic views
+Scans with a SSID
+Self-published work
+Self-published work
+Self-published work missing SDC copyright license
+Sheet music from Gallica (Bibliothèque nationale de France) uploaded by Gzen92Bot
+Skipped Images from Nationaal Archief
+Specimen missing SDC depicts
+Sport images supported by Wikimedia Chapters
+Staatsarchiv Freiburg Findbuch W 134 (Filmnegative II)
+Supported by .+
+Taken on missing SDC inception
+Taken with .+
+Template Unknown .+
+Text logos
+Time series charts of unadjusted data
+UK Government artistic works
+Unassessed QI candidates
+United States Bureau of Land Management images (review needed)
+Unknown date
+Unspec New SVG created with Inkscape
+Unspec SVG created with Inkscape
+Unsupported object
+Uploaded .+
+US National Archives location: other
+US National Archives series: American Unofficial Collection of World War I Photographs
+US National Archives series: DOCUMERICA: The Environmental Protection Agency's Program to Photographically Document Subjects of Environmental Concern, compiled 1972 - 1977
+US National Archives series: Enumeration District and Related Maps
+US National Archives series: Enumeration District Descriptions
+US National Archives series: Mission Photographs Taken During the Space Shuttle Program , 4/12/1981 - 7/21/2011
+US National Archives series: Photographs of American Military Activities
+User-created GFDL images
+Valid SVG created with Gnuplot-AusGovStat
+Valid SVG created with Text Editor:BSicons
+Valued images.*
+Vector version available
+Videos from open-access scholarly articles
+Web Summit flickr stream
+Wiki Exploration Program
+Wiki Loves Monuments in Ukraine 2020 - Quantity
+Wiki Movement Brazil's initiative with Casa de Oswaldo Cruz
+Wikiproject Roadside memorials and tombstones in Serbia
+With insignia
+With trademark
+WLM 2016 India unreviewed

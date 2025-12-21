@@ -20,9 +20,9 @@ img[align=left] {
 }
 
 #file-info p.expandable {
-	max-height: 1.4em;
+	max-height: 1.2em;
 	overflow: hidden;
-	transition: max-height 0.3s ease;
+	transition: max-height 1s ease;
 }
 
 #file-info p.expandable:hover {

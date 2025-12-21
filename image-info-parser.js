@@ -42,6 +42,7 @@ function filterVisibleCategories(categories) {
 function fetchFileInfo(fileTitle) {
 	var descSpan = document.getElementById("file-description");
 	var catSpan = document.getElementById("file-categories");
+	var apiLink = document.getElementById("api-link");
 	
 	// Show loading state
 	descSpan.textContent = "Loading...";
@@ -50,6 +51,9 @@ function fetchFileInfo(fileTitle) {
 	// Fetch the file's metadata using imageinfo with extmetadata
 	// Docs: https://www.mediawiki.org/wiki/API:Imageinfo
 	var infoUrl = "https://commons.wikimedia.org/w/api.php?action=query&titles=" + encodeURIComponent(fileTitle) + "&prop=imageinfo&iiprop=extmetadata&format=json&origin=*";
+	
+	// Update API debug link
+	apiLink.href = infoUrl;
 	
 	var infoRequest = new XMLHttpRequest();
 	infoRequest.open("GET", infoUrl, true);

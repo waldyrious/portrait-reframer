@@ -10,6 +10,12 @@ img[align=left] {
 	cursor: pointer;
 }
 
+.api-debug {
+	font-size: small;
+	opacity: 50%;
+	margin-left: 0.5em;
+}
+
 #file-info {
 	font-size: 0.9em;
 	margin-bottom: 1em;
